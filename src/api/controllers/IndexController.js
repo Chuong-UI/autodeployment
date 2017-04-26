@@ -9,7 +9,7 @@ IndexController.notFound = (req, res) => {
 };
 
 IndexController.userhome = (req, res) => {
-  res.render('userhome', {user: req.user});
+  res.render('admin', {user: req.user});
 };
 
 IndexController.proxy = (request, response) => {

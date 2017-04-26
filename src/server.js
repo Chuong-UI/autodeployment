@@ -46,7 +46,7 @@ server.startExpress = function() {
   require('./api/bootstrap')(app);
 
   // Serve static files
-  app.use(express.static(path.join(__dirname, './assets')));
+  app.use(express.static(path.join(__dirname, '.tmp/public')));
 
   // Morgan logger
   app.use(require('morgan')('tiny'));
