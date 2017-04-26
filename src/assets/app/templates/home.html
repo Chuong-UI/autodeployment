@@ -1,0 +1,67 @@
+<!-- <h1>TEST</h1> -->
+<!-- <button class="btn btn-default" ng-click="changeState()">Request Token</button> -->
+
+<div class="row">
+  <div class="col-md-9">
+    <div id="selector">
+      <div class="row form-group">
+        <div class="col-md-4 col-sm-6">
+          <b>Select your Nakshatra :</b>
+          <select class="form-control" ng-model="star" ng-change="getEvents()">
+            <option ng-repeat="business in businesses" value="{{$index+1}}">{{business}}</option>
+          </select>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <b>Select your Calendar :</b>
+          <select class="form-control" ng-model="city" ng-change="getEvents()">
+            <option ng-repeat="(id, name) in cities" value="{{id}}">{{name}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="font-size: 16px;">Click on the Star Icon to See Daily Muhurtha After Selecting Your Nakshatra and Calendar. Tarabalam gives just basic Muhurtha details for considering other factors and your personalized Muhurtha Login and Request Free Muhurtha by clicking here 
+      <a href="/login" target="_self">Login</a></div>
+    </div>
+    <div id="calendar">
+      <div calendar="calendar" ui-calendar="uiConfig"></div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div id="widgets">
+      <div class="box">
+        <div class="box-title">
+          Know Your Birth Star
+        </div>
+        <dob-calculator></dob-calculator>
+      </div>
+
+      <div class="box">
+        <div class="box-title">
+          Star Power Indicator
+        </div>
+        <div class="box-content">
+            <h3>
+              <img src="images/avatars/avatar11.png" alt="" /> Not So Favourable
+            </h3>
+            <h3>
+              <img src="images/avatars/avatar35.png" alt="" /> Unfavourable
+            </h3>
+            <h3>
+              <img src="images/avatars/avatar32.png" alt="" /> Favourable
+            </h3>
+            <h3>
+              <img src="images/avatars/avatar33.png" alt="" /> Very Favourable
+            </h3>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="box-title">
+          Holiday List
+        </div>
+        <div class="box-content">
+          <div ng-repeat="holiday in holidays">{{holiday.carePlanName}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

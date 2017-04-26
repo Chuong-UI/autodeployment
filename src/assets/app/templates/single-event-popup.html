@@ -1,0 +1,107 @@
+<div class="modal-header">
+  <h3 class="modal-title" id="modal-title">Today's Muhurtham</h3>
+</div>
+<div class="modal-body" id="modal-body">
+   <div class="timeline-container">
+      <div class="text-center timeline-label">
+        <b>
+          <i class="fa fa-star orange"></i> Today's Star
+        </b>
+      </div>
+
+      <div class="timeline-items">
+        <div class="timeline-item clearfix">
+
+          <div class="timeline-info">
+            <span class="timeline-date">12:01 am</span>
+            <i class="timeline-indicator icon icon-star btn btn-info no-hover"></i>
+          </div>
+
+          <div class="widget-box transparent">
+            <div class="widget-body">
+              <div class="widget-main no-padding">
+                <span class="text-110 semi">
+                  <a href="#" class="purple bolder">
+                    {{event.star1name}}
+                  </a>
+                </span>
+                <br>
+                <a href="#">{{event.star1comment}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div ng-hide="event.starttill1==&#39;23:59&#39;" class="timeline-item clearfix">
+          <div class="timeline-info">
+            <span class="timeline-date">{{event.starttill1}}</span>
+            <i class="timeline-indicator btn btn-info no-hover"></i>
+          </div>
+
+          <div class="widget-box transparent">
+            <div class="widget-body">
+              <div class="widget-main no-padding">
+                <span class="text-110 semi">
+                  <a href="#" class="purple bolder">
+                    {{event.star2name}}
+                  </a>
+                </span>
+              </div>
+            </div>
+
+            <a href="#">{{event.star2comment}}</a>
+          </div>
+        </div>
+
+        <div class="timeline-item clearfix">
+          <div class="timeline-info">
+            <span class="timeline-date">{{event.starttill2}}</span>
+            <i class="timeline-indicator btn btn-info no-hover"></i>
+          </div>
+
+          <div class="widget-box transparent">
+            <div class="widget-body">
+              <div class="widget-main no-padding"> End of Day </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <table class="table table-bordered table-condensed table-striped table-hover">
+        <tbody>
+          <tr>
+            <td class="green bolder semi" data-title="&#39;Tithi&#39;">Tithi</td>
+            <td data-title="&#39;tithi&#39;">
+              {{event.tithi}}
+            </td>
+          </tr>
+          <tr>
+            <td class="red bolder semi" data-title="&#39;masam&#39;">Masam</td>
+            <td data-title="&#39;Masam&#39;">{{event.schedulePatternDetail}}</td>
+          </tr>
+          <tr>
+            <td class="red bolder semi" data-title="&#39;vardhaym">
+              Vardhyam Timings
+            </td>
+            <td data-title="&#39;vardhyam">
+              {{event.vardhyam}}
+            </td>
+          </tr>
+          <tr>
+            <td class="black bolder" data-title="&#39;Dur muhurtham&#39;">
+              Durmuhurtham Timings
+            </td>
+            <td data-title="&#39;Dur muhurtham">
+              {{event.durmuhurtha}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Close</button>
+</div>

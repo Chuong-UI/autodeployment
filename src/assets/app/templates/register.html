@@ -1,0 +1,62 @@
+<div id="login-page">
+  <div class="overlay"></div>
+  <div id="login-form" class="register-form">
+    <h2 class="text-center  ">Register</h2>
+    <br>
+    <div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">First name</span>
+        <input type="text" class="form-control" ng-model="user.firstName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Last name</span>
+        <input type="text" class="form-control" ng-model="user.lastName" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Email</span>
+        <input type="email" class="form-control" ng-model="user.email" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Day of Birth</span>
+        <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="user.dob" is-open="datepickerOpened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" ng-focus="datepickerOpened = true" ng-change="updateBOD()" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="datepickerOpened = true"><i class="glyphicon glyphicon-calendar"></i></button>
+        </span>
+      </div>
+      <form>
+        <input id="dobDay" type="hidden" name="Day" value="{{dob.day}}"/>
+        <input id="dobMonth" type="hidden" name="Month" value="{{dob.month}}" />
+        <input id="dobYear" type="hidden" name="Year" value="{{dob.year}}" />
+        <div class="input-group form-group">
+          <span class="input-group-addon">Time of Bitrh</span>
+          <time-of-birth show-add-on="true" hour="tob.hour" minute="tob.minute" second="tob.second"></time-of-birth>
+        </div>
+        <div class="input-group form-group">
+          <span class="input-group-addon">Place of Birth</span>
+          <place-of-birth model="user.placeOfBirth"></place-of-birth>
+        </div>
+      </form>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Password</span>
+        <input type="password" class="form-control" ng-model="user.password" required>
+      </div>
+      <div class="input-group form-group">
+        <span class="input-group-addon">Re-password</span>
+        <input type="password" class="form-control" ng-model="user.repassword" required>
+      </div>
+      <div class="clearfix">
+        <div class="form-group"
+          vc-recaptcha ng-model="recaptcha"
+        ></div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-8">
+          <button class="btn btn-primary btn-block" type="submit" ng-disabled="!user.firstName || !user.lastName || !user.email || !user.dob || !user.placeOfBirth || !user.password || !user.repassword || !tob.hour || !tob.minute || !tob.second || !recaptcha" ng-click="register()">Register</button>
+        </div>
+        <div class="form-group col-md-4">
+          <a class="btn btn-success btn-block" href="/login" target="_self">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

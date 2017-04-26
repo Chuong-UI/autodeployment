@@ -1,0 +1,27 @@
+<nav>
+	<div class="clearfix">
+		<h1 id="logo" class="pull-left">
+			<a href="/"><img src="images/logo.png" /></a>
+		</h1>
+		<div class="pull-right">
+			<div id="info" uib-dropdown ng-if="profile.id">
+				<div class="clearfix" uib-dropdown-toggle>
+					<div class="avatar pull-left text-center">
+						<i class="fa fa-user"></i>
+					</div>
+					<div class="user-profile">
+						<div class="truncate">{{profile.firstName + ' ' + profile.lastName}}</div>
+						<div class="small truncate">{{profile.email}}</div>
+						<i class="fa fa-caret-down pull-right"></i>
+					</div>
+				</div>
+				<ul uib-dropdown-menu class="text-right">
+					<li><a ui-sref="home.admin.profile">User Profile</a></li>
+					<li><a ui-sref="home.admin.messages">My Messages</a></li>
+					<li><a href="/logout" target="_self">Log out</a></li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+</nav>
