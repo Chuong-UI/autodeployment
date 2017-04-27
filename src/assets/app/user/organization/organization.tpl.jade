@@ -1,0 +1,8 @@
+header-bar
+div(layout, flex)
+  main-sidebar#main-sidebar(layout="column", ng-class="{closed: $root.sidebarClosed}")
+  div(layout="column", flex)
+    .scrollable(flex, layout="column")
+      h2.page-title {{pageTitle}}
+      breadcrumb(items="breadcrumbs")
+      div.content-wrapper(ui-view="organization", flex, layout="column")

@@ -67,3 +67,13 @@ UserController.changePassword = (req, res) => {
     res.status(500).json(err);
   });
 };
+
+UserController.getProfile = (req, res) => {
+  UtilService.wrapCb(User.findById(req.params.userId), (err, user) => {
+    if (err) {
+      server.log.error('Error getting user', err);
+      res.status(500).json(err);
+    }
+    res.send(user);
+  });
+}

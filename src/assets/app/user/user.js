@@ -1,10 +1,13 @@
-angular.module('app.user', [])
+angular.module('app.user', [
+  'app.user.organization'
+])
 .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
   function ($stateProvider, $locationProvider, $urlRouterProvider) {
     $locationProvider.html5Mode(true);
 
     $stateProvider.state('user', {
       url: '/user/:userId',
+      title: 'Home',
       // abstract: true,
       views: {
         'main':{ 
@@ -33,7 +36,14 @@ angular.module('app.user', [])
         }
       },
       resolve: {
+        userProfile: function (Restangular, $stateParams, $rootScope, $state) {
+          return Restangular.one('users', String($stateParams.userId))
+            .get()
+            .then(function (profile) {
+              $rootScope.profile = angular.copy(profile);
+              return profile;
+            });
+        }
       }
     })
-
   }])

@@ -22,7 +22,20 @@ module.exports = function(app) {
   app.post('/api/reset-password/:token', TokenController.resetPassword);
 
   let apiRoutes = express.Router();
-  apiRoutes.use(AuthController.ensureAuth);
+  // apiRoutes.use(AuthController.ensureAuth);
+
+
+  // Get user profile
+  apiRoutes.get('/users/:userId', UserController.getProfile);
+
+  // Organizations
+  apiRoutes.get('/organizations/:organizationId', OrganizationController.findOne);
+  apiRoutes.post('/organizations', OrganizationController.create);
+
+
+  // Organization Membership
+  apiRoutes.post('/organization-memberships', OrganizationMembershipController.create);
+
 
   apiRoutes.get('/messages', MessageController.findAll);
   apiRoutes.get('/messages/:id', MessageController.findOne);

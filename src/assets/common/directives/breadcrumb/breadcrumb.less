@@ -1,0 +1,16 @@
+#breadcrumbs {
+  margin: 0 15px;
+  padding: 10px;
+  background: #fafafa;
+  .item {
+    margin-right: 10px;
+
+    &:after {
+      content: '>';
+      margin-left: 10px;
+    }
+    &:last-child:after {
+      content: '';
+    }
+  }
+}

@@ -31,7 +31,8 @@ var modules = {
 
 
       'app/templates-app.js',
-      'app/**/*.js'
+      'app/**/*.js',
+      'common/**/*.js'
     ],
     templateFilesToInject: [
       'app/**/*.tpl.html',

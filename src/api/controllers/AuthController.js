@@ -70,23 +70,33 @@ AuthController.callback = function(req, res, next) {
       return next(err);
     }
 
-    if (_(req.user).pick(['placeOfBirth', 'dateOfBirth', 'timeOfBirth']).pickBy().isEmpty()) {
-      server.log.warn('User profile has not completed yet, redirecting to user profile');
-      return res.redirect('/profile');
-    }
+    // if (_(req.user).pick(['placeOfBirth', 'dateOfBirth', 'timeOfBirth']).pickBy().isEmpty()) {
+    //   server.log.warn('User profile has not completed yet, redirecting to user profile');
+    //   return res.redirect('/profile');
+    // }
 
     // If we have previously stored a returnTo, use that,
     // otherwise, use the default.
-    if (req.session && req.session.returnTo) {
-      let url = req.session.returnTo;
-      delete req.session.returnTo;
-      server.log.verbose('Redirecting to', url);
-      if (url !== '/') {
-        return res.redirect(url);
+    // if (req.session && req.session.returnTo) {
+    //   let url = req.session.returnTo;
+    //   delete req.session.returnTo;
+    //   server.log.verbose('Redirecting to', url);
+    //   if (url !== '/') {
+    //     return res.redirect(url);
+    //   }
+    // }
+    
+    MembershipService.getUserOrgs(req.user, (err, orgs) => {
+      if (err) {
+        console.log(err);
+        res.redirect('/login');
+        return;
       }
-    }
-
-    res.redirect('/');
+      console.log(orgs);
+      if (orgs.length) {
+        res.redirect('/user/'+req.user.id+'/'+'organizations/'+orgs[0]);
+      }
+    });
   };
 
   passport.authenticate(req.params.provider || 'local', {

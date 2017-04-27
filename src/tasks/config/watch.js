@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     assets: {
 
       // Assets to watch:
-      files: ['assets/styles/**/*', 'assets/app/**/*', 'tasks/pipeline.js', '!assets/app/**/*.jade', "!**/node_modules/**/*", "!**/bower_components/**/*"],
+      files: ['assets/styles/**/*', 'assets/app/**/*', 'assets/common/**/*', 'assets/common/**/**/*', 'tasks/pipeline.js', '!assets/app/**/*.jade', "!**/node_modules/**/*", "!**/bower_components/**/*"],
 
       // When assets are changed:
       tasks: [
